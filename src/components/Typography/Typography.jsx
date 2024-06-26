@@ -30,31 +30,33 @@ const variants = {
 };
 
 const Typography = ({
-  align = alignment.inherit,
-  capitalize,
-  children,
-  color = colors.primary,
-  noWrap = false,
-  variant = variants.default,
-  wordBreak = 'normal',
-}) => {
+                      align = alignment.inherit,
+                      capitalize,
+                      children,
+                      color = colors.primary,
+                      noWrap = false,
+                      variant = variants.default,
+                      wordBreak = 'normal',
+                      textColor = 'inherit',
+                    }) => {
   const { theme } = useTheme();
   return (
-    <TypographyMUI
-      align={align}
-      noWrap={noWrap}
-      sx={{
-        ...theme.typography.variants[variant],
-        textTransform: capitalize && 'capitalize',
-        caretColor: '#FFFFFF',
-        color: color === 'inherit'
-          ? 'inherit'
-          : theme.typography.color[color] || color,
-        wordBreak,
-      }}
-    >
-      {children}
-    </TypographyMUI>
+      <TypographyMUI
+          align={align}
+          noWrap={noWrap}
+          sx={{
+            ...theme.typography.variants[variant],
+            textTransform: capitalize && 'capitalize',
+            caretColor: '#FFFFFF',
+            color: textColor === 'white' ? '#FFFFFF' :
+                textColor === 'black' ? '#000000':
+                color === 'inherit' ? 'inherit' :
+                    theme.typography.color[color] || color,
+            wordBreak,
+          }}
+      >
+        {children}
+      </TypographyMUI>
   );
 };
 

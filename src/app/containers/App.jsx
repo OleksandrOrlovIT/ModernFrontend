@@ -25,6 +25,8 @@ import Header from '../components/Header';
 import IntlProvider from '../components/IntlProvider';
 import MissedPage from '../components/MissedPage';
 import SearchParamsConfigurator from '../components/SearchParamsConfigurator';
+import CityList from 'pageProviders/CityList';
+import CityDetails from "../../pageProviders/CityDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -78,6 +80,14 @@ function App() {
                     <Route
                       element={<SecretPage />}
                       path={`${pageURLs[pages.secretPage]}`}
+                    />
+                    <Route
+                        element={<CityList />}
+                        path={`${pageURLs[pages.cityListPage]}`}
+                    />
+                    <Route
+                        element={<CityDetails />}
+                        path={`${pageURLs[pages.cityDetailsPage]}`}
                     />
                     <Route
                       element={(
